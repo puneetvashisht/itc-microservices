@@ -1,16 +1,13 @@
-package com.itc.springbootsample;
+package com.itc.itscurrencyexchangeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootSampleApplication {
+public class ItsCurrencyExchangeServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootSampleApplication.class, args);
+		SpringApplication.run(ItsCurrencyExchangeServiceApplication.class, args);
 	}
 
 }
-
-
-//java -jar <jar_file_name>
