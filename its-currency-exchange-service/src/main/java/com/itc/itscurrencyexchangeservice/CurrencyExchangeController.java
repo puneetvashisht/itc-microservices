@@ -33,5 +33,8 @@ public class CurrencyExchangeController {
 		return exchangeRepository.findByFromAndTo(from, to);
 //		findBy<FieldName>AND/OR<FieldName2>
 	}
+	
+	
+	
 
 }
