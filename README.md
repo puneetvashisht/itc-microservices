@@ -17,3 +17,11 @@
 
         1 USD = 71 INR
         I EUR = 96 INR
+
+        -Direct inovation of currency exchange service
+        http://localhost:8000/currency-exchange/from/USD/to/INR
+        - Invocation of CES through Zuul API Gateway
+        http://localhost:8765/its-currency-exchange-service/currency-exchange/from/USD/to/INR
+
+        - Invocation of CCS through Zuul API Gateway
+         http://localhost:8765/its-currency-conversion-service/currency-converter-feign/from/USD/to/INR/quantity/125

@@ -1,5 +1,7 @@
 package com.itc.itscurrencyexchangeservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,8 @@ import com.itc.itscurrencyexchangeservice.repos.ExchangeRepository;
 @RestController
 public class CurrencyExchangeController {
 
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	ExchangeRepository exchangeRepository;
 
@@ -29,6 +33,8 @@ public class CurrencyExchangeController {
 	@RequestMapping(path = "/currency-exchange/from/{fromCurrency}/to/{toCurrency}", method = RequestMethod.GET)
 	public ExchangeValue fetchExchangeRate(@PathVariable("fromCurrency") String from, @PathVariable("toCurrency") String to){
 //		return null;
+		
+		logger.info("*******: " + from);
 		//select from exchangevalue where from: from and to: to
 		return exchangeRepository.findByFromAndTo(from, to);
 //		findBy<FieldName>AND/OR<FieldName2>

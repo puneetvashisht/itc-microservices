@@ -1,23 +1,26 @@
-package com.itc.itscurrencyexchangeservice;
+package com.itc.itsnetflixzuulapigatewayserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
 import brave.sampler.Sampler;
 
-@SpringBootApplication
+
+@EnableZuulProxy
 @EnableDiscoveryClient
-public class ItsCurrencyExchangeServiceApplication {
+@SpringBootApplication
+public class ItsNetflixZuulApiGatewayServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ItsCurrencyExchangeServiceApplication.class, args);
+		SpringApplication.run(ItsNetflixZuulApiGatewayServerApplication.class, args);
 	}
 	
 	@Bean
 	public Sampler defaultSampler(){
-	  return Sampler.ALWAYS_SAMPLE;
+		return Sampler.ALWAYS_SAMPLE;
 	}
 
 }
