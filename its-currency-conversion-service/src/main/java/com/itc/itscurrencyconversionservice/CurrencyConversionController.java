@@ -13,13 +13,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 
 @RestController
 public class CurrencyConversionController {
 	@Autowired
 	private CurrencyExchangeServiceProxy currencyExchangeServiceProxy;
-	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@GetMapping("/hello")
+//	@HystrixCommand(fallbackMethod="fallbackMessage")
+	public String getMessage(){
+//		throw new RuntimeException("fail something");
+		System.out.println("In getmessage .......");
+		return "hello world!!";
+	}
+	
+	public String fallbackMessage(){
+//		throw new RuntimeException("fail something");
+		return "hello correct message!!";
+	}
+	
+	
+	
 	@GetMapping("currency-converter/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversionBean convertCurrency(@PathVariable("to") String to,
 			@PathVariable("from") String from,
